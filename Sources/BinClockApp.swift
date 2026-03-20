@@ -18,9 +18,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        let windowWidth: CGFloat = 350
+        let windowHeight: CGFloat = 200
+        
+        // Get the screen frame (excluding menu bar and dock)
+        let screenFrame = NSScreen.main?.visibleFrame ?? NSRect(x: 0, y: 0, width: 800, height: 600)
+        
+        // Calculate the upper right position
+        let xPos = screenFrame.maxX - windowWidth - 20 // 20pt padding from the right edge
+        let yPos = screenFrame.maxY - windowHeight - 20 // 20pt padding from the top edge
+        
         // Create the window
         window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 350, height: 200),
+            contentRect: NSRect(x: xPos, y: yPos, width: windowWidth, height: windowHeight),
             styleMask: [.borderless, .fullSizeContentView],
             backing: .buffered,
             defer: false
@@ -41,8 +51,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let contentView = ContentView()
         window.contentView = NSHostingView(rootView: contentView)
 
-        // Center on screen initially
-        window.center()
+        // Make visible on all spaces/desktops
+        window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+
         window.makeKeyAndOrderFront(nil)
         
         // Make the app "accessory" to hide from Dock if desired (optional)
