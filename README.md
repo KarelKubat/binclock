@@ -2,7 +2,7 @@
 
 ![binclock](binclock.png)
 
-BinClock is a small app for Mac OSX that displays a binary clock: hours, minutes and seconds are displayed as bits, with decimal output on the right side for ease of reading. The above image was taken at 13:24:36.
+BinClock is a small app for Mac OSX that displays a binary clock: hours, minutes and seconds are displayed as bits, with decimal output on the right side for ease of reading. The above image was taken at 18:43:45.
 
 BinClock uses a "widget-like" display; it stays on top of other windows. But it is just a Mac OSX binary with one (undecorated) output window. It starts in the upper right hand corner (you can modify the source if you want something else).
 

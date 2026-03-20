@@ -83,9 +83,9 @@ struct BitCell: View {
             .fill(isOn ? color : Color.gray.opacity(0.15))
             .frame(height: 40)
             .overlay(
-                Text(isOn ? "1" : "")
+                Text(isOn ? "1" : "0")
                     .font(.system(size: 16, weight: .bold, design: .monospaced))
-                    .foregroundColor(.white)
+                    .foregroundColor(isOn ? .white : .secondary)
             )
             .animation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0), value: isOn)
             .frame(maxWidth: .infinity)
